@@ -16,9 +16,9 @@ import android.widget.Button;
 import java.util.Calendar;
 
 public class AddEvent extends AppCompatActivity {
-    //USE these variables to store the date, and times
-    int t1Hour,t1Minute,t2Hour,t2Minute;
-    int d3year, d3month, d3date;
+    //ints for usage in TimePickerDialog and DatePickerDialog
+    int t1Hour,t1Minute;
+    int d1Year, d1Month, d1DayOf;
 
     TextView showStartTime;
     TextView showEndTime;
@@ -68,8 +68,8 @@ public class AddEvent extends AppCompatActivity {
                         new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                                t2Hour = hourOfDay;
-                                t2Minute = minute;
+                                t1Hour = hourOfDay;
+                                t1Minute = minute;
 
                                 Calendar calendar = Calendar.getInstance();
                                 calendar.set(0, 0, 0, t1Hour, t1Minute);
@@ -77,7 +77,7 @@ public class AddEvent extends AppCompatActivity {
                             }
                         }, 12, 0, false
                 );
-                tPD.updateTime(t2Hour, t2Minute);
+                tPD.updateTime(t1Hour, t1Minute);
                 tPD.show();
             }
         });
@@ -90,18 +90,18 @@ public class AddEvent extends AppCompatActivity {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                d3year = year;
-                                d3month = month;
-                                d3date = dayOfMonth;
+                                d1Year = year;
+                                d1Month = month;
+                                d1DayOf = dayOfMonth;
 
                                 Calendar calendar = Calendar.getInstance();
-                                calendar.set(d3year, d3month, d3date, 0, 0);
+                                calendar.set(d1Year, d1Month, d1DayOf, 0, 0);
 
                                 showDate.setText(DateFormat.format("yyyy-MM-dd", calendar));
                             }
                         }, 2020, 1, 1
                 );
-                dPD.updateDate(d3year, d3month, d3date);
+                dPD.updateDate(d1Year, d1Month, d1DayOf);
                 dPD.show();
             }
         });

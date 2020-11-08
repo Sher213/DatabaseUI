@@ -8,8 +8,8 @@ import android.widget.EditText;
 import android.widget.Button;
 
 public class AddCourse extends AppCompatActivity {
-    EditText mEdit;
-    EditText nEdit;
+    EditText titleEdit;
+    EditText profEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,12 +19,12 @@ public class AddCourse extends AppCompatActivity {
 
         sBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                mEdit = (EditText) findViewById(R.id.et_course_title);
-                nEdit = (EditText) findViewById(R.id.et_course_prof);
+                titleEdit = (EditText) findViewById(R.id.et_course_title);
+                profEdit = (EditText) findViewById(R.id.et_course_prof);
 
                 //USE THESE TO ACCESS THE DATA FROM INPUT
-                mEdit.getText().toString();
-                mEdit.getText().toString();
+                titleEdit.getText().toString();
+                profEdit.getText().toString();
             }
         });
     }
